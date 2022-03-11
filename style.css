@@ -1,8 +1,9 @@
-html {
+html, body {
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
-  width: 70%;
+  width: 90%;
+  height: 100%;
   max-width: 900px;
   background-color: white;
   color: black;
@@ -24,4 +25,10 @@ p {
 
 footer {
   font-size: 1rem;
+}
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
 }

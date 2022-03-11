@@ -11,9 +11,25 @@ writeRandomQuote = function () {
 
 function copyDate() {
   let footer = document.getElementById("copyright")
-  let copyrightText = "Copyright [YOUR_NAME] ©" + new Date().getFullYear()
+  let copyrightText = "Copyright Christophe Saugé ©" + new Date().getFullYear()
   footer.innerText = copyrightText
 }
 
 copyDate();
 writeRandomQuote();
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 48.82631195621006, lng: 2.344585955142975 },
+    zoom: 8,
+  });
+}
+
+async function getLocation() {
+  let response = await fetch('https://velib-metropole-opendata.smoove.pro/opendata/Velib_Metropole/station_information.json');
+  let data = await response.json();
+  document.getElementById("location").innerText = JSON.stringify(data["data"]["stations"][0]);
+}
+getLocation();
