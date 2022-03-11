@@ -28,7 +28,7 @@ function initMap() {
 }
 
 async function getLocation() {
-  let response = await fetch('https://velib-metropole-opendata.smoove.pro/opendata/Velib_Metropole/station_information.json');
+  let response = await fetch("https://api.codetabs.com/v1/proxy?quest=https://velib-metropole-opendata.smoove.pro/opendata/Velib_Metropole/station_status.json");
   let data = await response.json();
   document.getElementById("location").innerText = JSON.stringify(data["data"]["stations"][0]);
 }
